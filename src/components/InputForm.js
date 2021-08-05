@@ -35,7 +35,7 @@ export default function InputForm() {
                     <option value="5">Amy</option>
                     <option value="9">Zapp Brannigan</option>
                     <option value="13">Kif</option>
-                    <option value="12">Scruffy</option>
+                    <option value="11">Scruffy</option>
                 </select>
             </div>
             <div className="results">

@@ -3,7 +3,7 @@ export default function Results({char}) {
     
     return(
         <div className="results">
-            <img src={images.main} alt={`${name.first} ${name.middle} ${name.last}`} />
+            {images && <img src={images.main} alt={`${name.first} ${name.middle} ${name.last}`} />}
             <h2>{name.first} {name.middle} {name.last}</h2>
                 <p><strong>Age:</strong> {age}</p>
                 <p><strong>Species:</strong> {species}</p>
