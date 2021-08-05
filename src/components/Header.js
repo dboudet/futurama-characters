@@ -1,5 +1,6 @@
 import HeroImage from "./HeroImage"
-function Header() {
+
+export default function Header() {
     return(
         <header>
             <HeroImage />
@@ -7,5 +8,3 @@ function Header() {
         </header>
     )
 }
-
-export default Header

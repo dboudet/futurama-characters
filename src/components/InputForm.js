@@ -1,36 +1,46 @@
-import {useState} from 'react'
-import {APIKEY} from '../config'
+import {useEffect, useState} from 'react'
+import Results from './Results'
 
-function InputForm() {
-    const [characters, setCharacters] = useState('')
+export default function InputForm() {
+    const [character, setCharacter] = useState([])
+    const [lookupId, setLookupId] = useState('')
 
-    const matchCharacter = () => {
-        console.log("Searching")
-        fetch('https://api.sampleapis.com/futurama/characters')
-            .then(res => res.json())
-            .then(json => {
-                setCharacters(json.characters)
-                return
-            })
-            .catch(err => console.log(err))
-    }
+    useEffect(() => {
+        fetch(`https://api.sampleapis.com/futurama/characters?id=${lookupId}`)
+            .then(response => response.json())
+            .then( data => setCharacter(data))
+            .catch(err => console.error(err))
+    },[lookupId])
+    
+    // console.log(character)
+    
     return(
-        <div id="character-select">
-            <label for="characters">Select a Futurama character:</label>
-            <select id="characters" name="characters">
-                <option value="fry">Fry</option>
-                <option value="leela">Leela</option>
-                <option value="bender">Bender</option>
-                <option value="zoidberg">Dr. Zoidberg</option>
-                <option value="farnsworth">Professor Farnsworth</option>
-                <option value="hermes">Hermes</option>
-                <option value="amy">Amy</option>
-                <option value="zapp">Zapp Brannigan</option>
-                <option value="kif">Kif</option>
-                <option value="scruffy">Scruffy</option>
-            </select>
-        </div>
+        <main>
+            <div id="character-select">
+                <label>Select a Futurama character to learn more about them:<br/></label>
+                <select 
+                    value={lookupId}
+                    onChange={event => {
+                        setLookupId(event.target.value)
+                    }}
+                    name="characters"
+                >
+                    <option value="0">Select a character...</option>
+                    <option value="1">Fry</option>
+                    <option value="2">Leela</option>
+                    <option value="3">Bender</option>
+                    <option value="8">Dr. Zoidberg</option>
+                    <option value="4">Professor Farnsworth</option>
+                    <option value="6">Hermes</option>
+                    <option value="5">Amy</option>
+                    <option value="9">Zapp Brannigan</option>
+                    <option value="13">Kif</option>
+                    <option value="12">Scruffy</option>
+                </select>
+            </div>
+            <div className="results">
+                {character.map((character) => <Results key={character.id} char={character} /> )}
+            </div>
+        </main>
     )
 }
-
-export default InputForm

@@ -1,10 +1,8 @@
 import React from 'react'
 import heroImage from '../images/futurama-title.jpeg'
-function HeroImage() {
+
+export default function HeroImage() {
     return (
-    <div className="heroContainer">
-        <img src={heroImage} />
-    </div>
+        <img className="hero-image" src={heroImage} alt="Futurama" />
     )
 }
-export default HeroImage

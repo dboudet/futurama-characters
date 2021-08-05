@@ -1,19 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import Footer from './components/Footer';
 import Header from './components/Header';
 import InputForm from './components/InputForm';
-import Results from './components/Results';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <Header />
 
       <InputForm />
 
-      <Results />
+      <Footer />
     </div>
   );
 }
-
-export default App;
