@@ -1,7 +1,7 @@
-import './App.css';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import InputForm from './components/InputForm';
+import "./App.css"
+import Footer from "./components/Footer"
+import Header from "./components/Header"
+import InputForm from "./components/InputForm"
 
 export default function App() {
   return (
@@ -12,5 +12,5 @@ export default function App() {
 
       <Footer />
     </div>
-  );
+  )
 }

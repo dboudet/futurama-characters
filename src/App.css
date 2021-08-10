@@ -1,8 +1,13 @@
-*, a::before, a::after { margin:0; box-sizing: inherit;}
-
+*,
+a::before,
+a::after {
+  margin: 0;
+  box-sizing: inherit;
+}
+html { scroll-behavior: smooth; }
 .App {
-  font-family: 'futura','sans-serif';
-  text-align:center;
+  font-family: "futura", "sans-serif";
+  text-align: center;
 }
 
 .hero-image {
@@ -11,32 +16,41 @@
 header h1 {
   font-size: 3.5em;
   text-transform: uppercase;
-  background: -webkit-linear-gradient(#AA3333, #FF0000);
+  background: -webkit-linear-gradient(#aa3333, #ff0000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: #FFFF00;
+  -webkit-text-stroke-color: #ffff00;
 }
 
-#character-select label, #character-select select {
+main {
+  padding: 24px 24px 40px 24px;
+}
+#character-select label,
+#character-select select {
   font-size: 1.4em;
   padding: 4px 8px;
 }
 .results {
-  padding-top:20px;
+  padding-top: 20px;
+  max-width: 600px;
+  margin: 0 auto;
 }
-main {
-  padding:24px 24px 40px 24px;
+.results p {
+  margin-bottom: 12px;
+}
+p.saying {
+  font-style: italic;
 }
 footer {
-  height:100px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:#0b0b3c;
-  color:#FFFFFF;
+  background-color: #0b0b3c;
+  color: #ffffff;
 }
-footer>a {
-  color:#FFFFFF;
-  margin:8px;
+footer > a {
+  color: #ffffff;
+  margin: 8px;
 }

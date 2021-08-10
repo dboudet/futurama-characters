@@ -3,16 +3,18 @@ export default function Results({char}) {
     
     return(
         <div className="results">
-            {images && <img src={images.main} alt={`${name.first} ${name.middle} ${name.last}`} />}
+            {char.images !== undefined && 
+                <img 
+                    src={images.main} 
+                    alt={`${name.first} ${name.middle} ${name.last}`}
+                />
+            }
             <h2>{name.first} {name.middle} {name.last}</h2>
-                <p><strong>Age:</strong> {age}</p>
-                <p><strong>Species:</strong> {species}</p>
-                <p><strong>Gender:</strong> {gender}</p>
-                <p><strong>Occupation:</strong> {occupation}</p>
-                <p><strong>Sayings:</strong><br/>{sayings.slice(0,5).map( (saying) => <p>{saying}</p>)}</p>
-            {/* <label>Age: {age}</label>
-            <label>Gender: {gender}</label>
-            <label>Species: {species}</label> */}
+                {char.age && <p><strong>Age:</strong> {age}</p>}
+                {char.species && <p><strong>Species:</strong> {species}</p>}
+                {char.gender && <p><strong>Gender:</strong> {gender}</p>}
+                {char.occupation && <p><strong>Occupation:</strong> {occupation}</p>}
+                {char.sayings && <p><strong>Sayings:</strong><br/>{sayings.slice(0,5).map( (saying) => <p className="saying">{saying}</p>)}</p>}
         </div>
         )
 }

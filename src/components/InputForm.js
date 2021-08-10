@@ -38,8 +38,8 @@ export default function InputForm() {
                     <option value="11">Scruffy</option>
                 </select>
             </div>
-            <div className="results">
-                {character.map((character) => <Results key={character.id} char={character} /> )}
+            <div id="results-container">
+                {character?.map((character) => <Results key={character.id} char={character} /> )}
             </div>
         </main>
     )
