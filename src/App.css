@@ -49,7 +49,7 @@ main {
 .results p {
   margin-bottom: 12px;
 }
-p.saying {
+span.saying {
   font-style: italic;
 }
 footer {
