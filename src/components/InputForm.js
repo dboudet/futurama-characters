@@ -6,13 +6,20 @@ export default function InputForm() {
     const [lookupId, setLookupId] = useState('')
 
     useEffect(() => {
-        fetch(`https://api.sampleapis.com/futurama/characters?id=${lookupId}`)
+        fetch('https://api.sampleapis.com/futurama/characters')
             .then(response => response.json())
-            .then( data => setCharacter(data))
+            .then( data => {
+                if (lookupId) {
+                    const filteredChar = data.filter(v => v.id.toString() === lookupId.toString())
+                    setCharacter(filteredChar)
+                } else {
+                    setCharacter([])
+                }
+            })
             .catch(err => console.error(err))
     },[lookupId])
     
-    // console.log(character)
+    console.log(character)
     
     return(
         <main>
